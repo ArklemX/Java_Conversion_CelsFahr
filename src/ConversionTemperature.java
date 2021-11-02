@@ -21,7 +21,7 @@ public class ConversionTemperature {
                         System.out.println("Quelle valeur convertir ? ");
                         valeur = scan.nextDouble();
                    } catch (InputMismatchException e) {
-                       //TODO: handle exception
+                       // handle exception
                        System.out.println("Mauvais types de carctères ! Veuillez entrer des entiers svp ! ");
                        break ;
                    }
@@ -40,7 +40,7 @@ public class ConversionTemperature {
                 } while (valeur == -1);
             //Fin
 
-            System.out.println("Nouvelle Conversion  ? (O = \" oui \" )");
+            System.out.println("Nouvelle Conversion  ? (O = \" oui \" Autre = \" Non \"  )  ");
             scan.nextLine();
             encore = scan.nextLine().charAt(0);
         } while (encore == 'O');
