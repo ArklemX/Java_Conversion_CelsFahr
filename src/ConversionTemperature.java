@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConversionTemperature {
@@ -14,10 +15,16 @@ public class ConversionTemperature {
             //Début
                 //Boucle secondaire de selection du mode de convesion
                 do {
-                    System.out.println("Quelle Conversion effecué ? Il n'y a que ces 2 choix possibles : \n 1-Celsius vers Fahrenheit\n 2-Fharenheit vers Celsius");
-                    conversion = scan.nextInt();
-                    System.out.println("Quelle valeur convertir ? ");
-                    valeur = scan.nextDouble();
+                   try {
+                        System.out.println("Quelle Conversion effecué ? Il n'y a que ces 2 choix possibles : \n 1-Celsius vers Fahrenheit\n 2-Fharenheit vers Celsius");
+                        conversion = scan.nextInt();
+                        System.out.println("Quelle valeur convertir ? ");
+                        valeur = scan.nextDouble();
+                   } catch (InputMismatchException e) {
+                       //TODO: handle exception
+                       System.out.println("Mauvais types de carctères ! Veuillez entrer des entiers svp ! ");
+                       break ;
+                   }
                     switch (conversion) {
                         case 1:
                             System.out.println(valeur + " °C correspond à "+( (   (9.0/5.0) * valeur  ) + 32) +" °F ");
@@ -33,7 +40,7 @@ public class ConversionTemperature {
                 } while (valeur == -1);
             //Fin
 
-            System.out.println("Nouvelle Conversion  ? (O/N)");
+            System.out.println("Nouvelle Conversion  ? (O = \" oui \" )");
             scan.nextLine();
             encore = scan.nextLine().charAt(0);
         } while (encore == 'O');
