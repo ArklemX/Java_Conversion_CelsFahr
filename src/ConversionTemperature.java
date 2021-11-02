@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class App {
+public class ConversionTemperature {
             //Déclaration des variables utiles
             static int conversion;
             static double valeur;
