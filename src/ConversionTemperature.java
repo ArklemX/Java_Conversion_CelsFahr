@@ -27,10 +27,10 @@ public class ConversionTemperature {
                    }
                     switch (conversion) {
                         case 1:
-                            System.out.println(valeur + " °C correspond à "+( (   (9.0/5.0) * valeur  ) + 32) +" °F ");
+                            System.out.println(valeur + " °C correspond à "+arrondi(  ((  (9.0/5.0) * valeur  ) + 32) , 2) +" °F ");
                             break;
                         case 2:
-                            System.out.println(valeur+" °F correspond à "+ ( (  (valeur - 32) * 5.0   ) / 9.0 )  +" °C ");
+                            System.out.println(valeur+" °F correspond à "+ arrondi( ( (  (valeur - 32) * 5.0   ) / 9.0 ), 2)  +" °C ");
                             break;
                         default:
                         valeur = -1;
@@ -46,5 +46,9 @@ public class ConversionTemperature {
         } while (encore == 'O');
         //Fermons le flux de l'objet Scanner
         scan.close();
+    }
+    public static double arrondi(double A, int B) {
+        return (double) ( (int) (A * Math.pow(10, B) + .5)) / Math.pow(10,
+        B);
     }
 }
